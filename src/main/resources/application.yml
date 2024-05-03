@@ -1,0 +1,8 @@
+server:
+  port: 32548
+  servlet:
+    context-path: /demo
+
+# 日志配置
+logging:
+  config: classpath:logback.xml
