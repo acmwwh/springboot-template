@@ -1,7 +1,12 @@
 package com.example.acmwwh.module.helloworld.service.impl;
 
-import com.example.acmwwh.module.helloworld.service.HelloWorldService;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.example.acmwwh.module.helloworld.model.dto.HelloWorldDTO;
+import com.example.acmwwh.module.helloworld.repository.HelloWorldRepo;
+import com.example.acmwwh.module.helloworld.service.HelloWorldService;
 
 /**
  * the implement of hello-world service
@@ -11,6 +16,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HelloWorldServiceImpl implements HelloWorldService {
+
+    @Resource
+    private HelloWorldRepo helloWorldRepo;
+
     @Override
     public String sayHi() {
         return "Hi";
@@ -19,5 +28,15 @@ public class HelloWorldServiceImpl implements HelloWorldService {
     @Override
     public String echo(String echo) {
         return echo;
+    }
+
+    @Override
+    public HelloWorldDTO get(String id) {
+        return helloWorldRepo.get(id);
+    }
+
+    @Override
+    public void save(HelloWorldDTO bo) {
+        helloWorldRepo.save(bo);
     }
 }

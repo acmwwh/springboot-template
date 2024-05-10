@@ -3,6 +3,14 @@ server:
   servlet:
     context-path: /demo
 
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url : jdbc:sqlite:F:/springboot-template/src/main/resources/store/istore.sqlite?date_string_format=yyyy-MM-dd HH:mm:ss
+    username:
+    password:
+    schema: classpath:store/create-tables.sql
+
 # 日志配置
 logging:
   config: classpath:logback.xml
